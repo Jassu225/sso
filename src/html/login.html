@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SSO | Login</title>
+    <link rel="stylesheet" href="/css/common.css"/>
+    <link rel="stylesheet" href="/css/login.css"/>
+</head>
+<body>
+    <div class="flex-container center-content-horizontally center-content-vertically full-width full-height">
+        <div class="login-container">
+            <h2 style="text-align: center; color: #a2a2a4;">SSO Server Login</h2>
+            <input id="username" class="block input" type="text" placeholder="UserName"/>
+            <input id="password" class="block input" type="password" placeholder="********"/>
+            <div class="button" id="logon">Logon</div>
+            <div class="button" id="signup">SignUp</div>
+        </div>
+    </div>
+    <script src="/js/common.js"></script>
+    <script>
+        document.getElementById("logon").addEventListener("click", function() {
+            let UserName = document.getElementById("username").value;
+            let Password = document.getElementById("password").value;
+            postRequest("/verifyCredentials", 
+                { userName: UserName, password: Password }, 
+                function(data) { //success
+                    
+                }, 
+                function(response) { // error
+
+                }
+            );
+        });
+    </script>
+</body>
+</html>
